@@ -1,0 +1,19 @@
+{
+  "name": "node.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm --prefix ./backend start\" \"npm --prefix ./frontend start\"",
+    "build": "npm --prefix ./backend install",
+    "start:prod": "node src/server.js",
+    "lint": "eslint . --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "type": "module"
+}
