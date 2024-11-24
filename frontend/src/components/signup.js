@@ -16,7 +16,7 @@ const Signup = ({ handleSignup = () => {}, toggleForm = () => {} }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(`Changing ${name} to: `, value); // Add logging to debug
+    // console.log(`Changing ${name} to: `, value); // Add logging to debug
     setFormData({ ...formData, [name]: value || '' }); // Fallback to '' to avoid undefined
   };
 
