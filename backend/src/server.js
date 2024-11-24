@@ -38,6 +38,14 @@ app.use('/api/login', secondRouter);
 app.use('/api/addInfo', thirdRouter);
 app.use('/api/profile', protectedRouter);
 
+// Serve static files from the React frontend build directory
+app.use(express.static(path.join(path.resolve(), 'frontend/build')));
+
+// Catch-all route to handle React Router (frontend routes)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(path.resolve(), 'frontend/build', 'index.html'));
+});
+
 // Start the server
 app.listen(PORT,'0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`);
