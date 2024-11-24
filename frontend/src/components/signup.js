@@ -37,7 +37,7 @@ const Signup = ({ handleSignup = () => {}, toggleForm = () => {} }) => {
     try {
       console.log('Submitting form data:', formData);
 
-      const response = await axios.post('http://localhost:3000/api/signup', formData);
+      const response = await axios.post('http://localhost:3001/api/signup', formData);
 
       setMessage(response.data.message);
       handleSignup(response.data.user);

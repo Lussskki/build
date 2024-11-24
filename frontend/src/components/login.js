@@ -21,7 +21,7 @@ const Login = ({ handleLogin, toggleForm }) => {
     setIsLoading(true);
     try {
       // Login request to backend
-      const response = await axios.post('http://localhost:3000/api/login/', formData);
+      const response = await axios.post('http://localhost:3001/api/login/', formData);
       const { token } = response.data;
 
       // Store token in localStorage for further authentication
@@ -43,7 +43,7 @@ const Login = ({ handleLogin, toggleForm }) => {
   // Function to fetch tasks from the backend
   const fetchTasks = async (token) => {
     try {
-      const tasksResponse = await axios.get('http://localhost:3000/api/profile/data', {
+      const tasksResponse = await axios.get('http://localhost:3001/api/profile/data', {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -62,7 +62,7 @@ const Login = ({ handleLogin, toggleForm }) => {
       try {
         const token = localStorage.getItem('token'); // Retrieve the token
         await axios.post(
-          'http://localhost:3000/api/addInfo/add', // Ensure this matches the backend route
+          'http://localhost:3001/api/addInfo/add', // Ensure this matches the backend route
           { field1: newTask }, // Sending new task as `field1`
           { headers: { Authorization: `Bearer ${token}` } } // Include the token for authentication
         );
@@ -84,7 +84,7 @@ const Login = ({ handleLogin, toggleForm }) => {
       if (!taskToDelete || !taskToDelete._id) return;
 
       // Send DELETE request with task ID
-      await axios.delete(`http://localhost:3000/api/profile/${taskToDelete._id}`, {
+      await axios.delete(`http://localhost:3001/api/profile/${taskToDelete._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

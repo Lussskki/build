@@ -20,7 +20,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Use environment variables for CORS configuration
-const allowedOrigin = process.env.FRONTEND_URL || FRONTEND_URL;
+const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:3000';
 const allowedMethods = process.env.ALLOWED_METHODS ? process.env.ALLOWED_METHODS.split(',') : ['GET', 'POST', 'DELETE'];
 
 
