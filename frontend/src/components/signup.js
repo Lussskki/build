@@ -9,6 +9,9 @@ const Signup = ({ handleSignup = () => {}, toggleForm = () => {} }) => {
     password: '',
   });
 
+    // Define your backend URL (Replace with your Render backend URL)
+  const backendUrl = `https://task-manager-app-i2zj.onrender.com`;  // Update this with your backend URL
+
   const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
@@ -37,7 +40,7 @@ const Signup = ({ handleSignup = () => {}, toggleForm = () => {} }) => {
     try {
       console.log('Submitting form data:', formData);
 
-      const response = await axios.post('http://localhost:3001/api/signup', formData);
+      const response = await axios.post(`${backendUrl}/api/signup/`, formData);
 
       setMessage(response.data.message);
       handleSignup(response.data.user);
