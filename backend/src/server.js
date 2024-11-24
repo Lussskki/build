@@ -11,6 +11,8 @@ import protectedRouter from './router/protectedRouter.js';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
+import path from 'path'
+
 import dotenv from 'dotenv'
 dotenv.config()
 
